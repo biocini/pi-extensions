@@ -1,0 +1,26 @@
+{
+  "name": "pi-extensions",
+  "version": "0.1.0",
+  "description": "Personal suite of Pi extensions, skills, and prompt templates",
+  "keywords": ["pi-package"],
+  "license": "BSD-3-Clause",
+  "private": true,
+  "devDependencies": {
+    "@mariozechner/pi-coding-agent": "*",
+    "@mariozechner/pi-ai": "*",
+    "@mariozechner/pi-tui": "*",
+    "typebox": "*",
+    "typescript": "^5.4.0"
+  },
+  "peerDependencies": {
+    "@mariozechner/pi-coding-agent": "*",
+    "@mariozechner/pi-ai": "*",
+    "@mariozechner/pi-tui": "*",
+    "typebox": "*"
+  },
+  "pi": {
+    "extensions": ["./extensions"],
+    "skills": ["./skills"],
+    "prompts": ["./prompts"]
+  }
+}
