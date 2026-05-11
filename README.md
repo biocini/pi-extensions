@@ -12,9 +12,10 @@ Personal suite of [Pi](https://pi.dev/) extensions, skills, and prompt templates
 
 ## Included extensions
 
-| Extension       | Description                                                                     |
-| --------------- | ------------------------------------------------------------------------------- |
-| `current-model` | Exposes the active LLM model (`get_current_model` tool + `/model-info` command) |
+| Extension          | Description                                                                                                               |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| `current-model`    | Exposes the active LLM model (`get_current_model` tool + `/model-info` command)                                           |
+| `resource-locator` | Discover path locations of installed Pi extensions, skills, and themes (`list_pi_resources` tool + `/ext-locate` command) |
 
 ## Usage
 
