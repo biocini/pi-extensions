@@ -41,17 +41,18 @@ Generated-with: <agent-name> (<provider>/<model-id>) via pi
 
 - **Non-optional** — always include the signed footer
 - Format: `Generated-with: <agent-name> (<provider>/<model-id>) via pi`
-- Use `get_current_model` to discover the active model if you do not already know it
+- Use `get_current_model` (from the `current-model` extension in this repo) to discover the active model
 
 ## Steps
 
 1. Review `git status` and `git diff --staged` (or `--cached`) to understand the current changes.
 2. If the user provided specific file paths/globs, limit review to those files and stage only those.
 3. If there are ambiguous extra files not clearly part of the requested commit, ask the user for clarification before proceeding.
-4. Draft the full multi-line commit message using the **write** tool to a temp file (e.g., `/tmp/msg.txt`). Never use `echo` or heredocs to compose commit messages.
-5. Stage the intended files with `git add <paths>`.
-6. Commit with `git commit -F /tmp/msg.txt`.
-7. Do **not** push. Only commit.
+4. Call `get_current_model` (provided by the `current-model` extension in this repo) to discover the active model for the footer.
+5. Draft the full multi-line commit message using the **write** tool to a temp file (e.g., `/tmp/msg.txt`). Never use `echo` or heredocs to compose commit messages.
+6. Stage the intended files with `git add <paths>`.
+7. Commit with `git commit -F /tmp/msg.txt`.
+8. Do **not** push. Only commit.
 
 ## Notes
 
