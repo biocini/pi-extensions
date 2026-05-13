@@ -135,10 +135,10 @@ export default function (pi: ExtensionAPI) {
 				);
 			}
 
-			const lines: string[] = [];
+			const lines: string[] = [""];
 
 			if (filteredGroups.length > 0) {
-				lines.push("=== Extensions / Themes ===");
+				lines.push("## Extensions / Themes");
 				for (const g of filteredGroups) {
 					lines.push(`\n${g.path}`);
 					lines.push(`  scope: ${g.scope} | source: ${g.source}`);
@@ -149,7 +149,7 @@ export default function (pi: ExtensionAPI) {
 			}
 
 			if (filteredSkills.length > 0) {
-				lines.push("\n=== Skills ===");
+				lines.push("\n## Skills");
 				for (const s of filteredSkills) {
 					lines.push(`\n${s.path}`);
 					lines.push(
@@ -158,7 +158,7 @@ export default function (pi: ExtensionAPI) {
 				}
 			}
 
-			if (lines.length === 0) {
+			if (lines.length === 1) {
 				lines.push("No resources match the filter.");
 			}
 
