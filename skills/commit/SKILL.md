@@ -32,7 +32,7 @@ Generated-with: <agent-name> (<provider>/<model-id>) via pi
 
 - **Optional** for trivial or self-evident changes
 - **Use the two-paragraph style** when the work is substantial enough to warrant further breakdown or explanation
-- When present, write **two paragraphs** separated by a blank line:
+- When present, write **two paragraphs** separated by a blank line. This separation is an AI disclosure practice: it makes the boundary between human direction and agent implementation explicit and auditable in the project history.
   - **First paragraph:** The intention behind the change — the goal or purpose the user expressed, plus the direction given regarding how to perform the work (e.g., why this change is needed, what problem it solves, the design approach we agreed on).
   - **Second paragraph:** The implementation — the concrete steps I took to realize that intention, including files modified or created, tools used, key code changes, and any trade-offs or decisions made along the way.
 - No breaking-change markers (`BREAKING CHANGE:`)
