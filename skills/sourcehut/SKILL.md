@@ -10,6 +10,7 @@ Use the `hut` CLI to interact with SourceHut (sr.ht). Install via nix: `nix-shel
 ## Setup
 
 Initialize configuration (creates `~/.config/hut/config`):
+
 ```bash
 hut init
 ```
@@ -19,6 +20,7 @@ The config stores your personal access token and default instance. Tokens are sc
 ## Resource Naming
 
 SourceHut uses `~user/name` notation for resources:
+
 - Repository: `~user/repo`
 - Tracker: `~user/tracker`
 - Mailing list: `~user/list`
@@ -28,7 +30,9 @@ Many `hut` commands infer the current resource from the git directory context. U
 ## Git Repositories
 
 ### Clone and setup
+
 Clone a repo and configure `git send-email`:
+
 ```bash
 hut git clone ~user/repo
 # or from URL:
@@ -36,6 +40,7 @@ hut git clone git@git.sr.ht:~user/repo
 ```
 
 ### Create and manage repos
+
 ```bash
 # Create repo (prints remote URL)
 hut git create my-project --description "My project"
@@ -54,6 +59,7 @@ hut git delete --yes
 ```
 
 ### List and inspect
+
 ```bash
 # List your repos
 hut git list
@@ -69,6 +75,7 @@ hut git show --web
 ```
 
 ### Artifacts
+
 ```bash
 # List artifacts for current repo
 hut git artifact list
@@ -81,6 +88,7 @@ hut git artifact delete <id>
 ```
 
 ### Access Control
+
 ```bash
 # List ACL entries
 hut git acl list
@@ -96,6 +104,7 @@ hut git acl delete <id>
 ```
 
 ### Webhooks
+
 ```bash
 # List webhooks for current repo
 hut git webhook list
@@ -115,6 +124,7 @@ hut git user-webhook list
 SourceHut CI uses build manifests (YAML), not GitHub Actions. Default manifest paths: `.build.yml`, `.build.yaml`, `.builds/*.yml`, `.builds/*.yaml`.
 
 ### Submit and monitor jobs
+
 ```bash
 # Submit with auto-discovered manifest
 hut builds submit
@@ -136,6 +146,7 @@ hut builds submit --visibility public
 ```
 
 ### Job management
+
 ```bash
 # List recent jobs
 hut builds list --count 20
@@ -163,6 +174,7 @@ hut builds update <id> --tags "release" --visibility public
 ```
 
 ### Artifacts and secrets
+
 ```bash
 # List job artifacts
 hut builds artifacts <id>
@@ -175,6 +187,7 @@ hut builds secret share <secret-name> --user ~collaborator
 ```
 
 ### Webhooks
+
 ```bash
 hut builds user-webhook list
 hut builds user-webhook create -e JOB_CREATED -u https://example.com/build-hook
@@ -183,6 +196,7 @@ hut builds user-webhook create -e JOB_CREATED -u https://example.com/build-hook
 ## Todo (Issue Trackers)
 
 ### Tracker management
+
 ```bash
 # Create a tracker
 hut todo create bugs --description "Bug tracker"
@@ -202,6 +216,7 @@ hut todo unsubscribe ~user/tracker
 ```
 
 ### Tickets
+
 ```bash
 # Create a ticket
 hut todo ticket create
@@ -236,6 +251,7 @@ hut todo ticket delete <id> --yes
 ```
 
 ### Ticket workflow
+
 ```bash
 # Comment on a ticket
 hut todo ticket comment <id> --stdin <<EOF
@@ -253,6 +269,7 @@ hut todo ticket update-status <id> --status RESOLVED --resolution FIXED
 ```
 
 ### Labels
+
 ```bash
 # Create a label
 hut todo label create bug --background "#ff0000"
@@ -274,6 +291,7 @@ hut todo label delete critical
 ```
 
 ### Assignment
+
 ```bash
 # Assign ticket
 hut todo ticket assign <id> --user ~collaborator
@@ -285,6 +303,7 @@ hut todo ticket unassign <id> --user ~collaborator
 ## Mailing Lists
 
 ### List management
+
 ```bash
 # Create a mailing list
 hut lists create dev --visibility public
@@ -304,6 +323,7 @@ hut lists subscriptions
 ```
 
 ### Patchsets (code review)
+
 ```bash
 # List proposed patchsets
 hut lists patchset list
@@ -323,6 +343,7 @@ hut lists patchset update <id> --status MERGED
 ```
 
 ### Archives
+
 ```bash
 # Download full archive as mbox
 hut lists archive ~user/dev > archive.mbox
@@ -332,6 +353,7 @@ hut lists archive ~user/dev --days 7 > recent.mbox
 ```
 
 ### Access control and webhooks
+
 ```bash
 hut lists acl list
 hut lists acl update ~user --mode RW
@@ -342,6 +364,7 @@ hut lists webhook create -e PATCHSET_RECEIVED -u https://example.com/list-hook
 ## Meta (Account Management)
 
 ### Profile
+
 ```bash
 # Show your profile
 hut meta show
@@ -354,6 +377,7 @@ hut meta update --bio "Software developer" --url https://example.com
 ```
 
 ### Keys
+
 ```bash
 # List SSH keys
 hut meta ssh-key list
@@ -378,6 +402,7 @@ hut meta pgp-key delete <id>
 ```
 
 ### Security
+
 ```bash
 # Show audit log
 hut meta audit-log --count 50
@@ -389,6 +414,7 @@ hut meta oauth tokens
 ## Hub (Projects)
 
 Hub projects aggregate resources across sr.ht services:
+
 ```bash
 # List projects
 hut hub list
@@ -511,6 +537,7 @@ hut lists patchset apply <id>
 ## Visibility Levels
 
 SourceHut has three visibility levels used across services:
+
 - `public` — visible to everyone
 - `unlisted` — accessible but not listed (default for pastes, builds)
 - `private` — accessible only to you and ACL entries
@@ -518,4 +545,5 @@ SourceHut has three visibility levels used across services:
 ## Common Patterns
 
 ### Work with multiple instances
+
 SourceHut is self-hostable. To target a non-default instance, set the instance in your hut config or use environment variables. See `hut init --help` for instance configuration.
